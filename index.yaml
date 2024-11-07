@@ -1,0 +1,28 @@
+application:
+  apps:
+  - name: grafana-stack
+    group: monitoring
+    project: toolchain
+    modules:
+      imageupdater: false 
+      notifications: false
+    environment:
+      toolchain:
+        cluster:
+          dc: false
+          drc: true
+        namespace: "toolchain-develop"
+        type: "helm" # default=kustomize, helm, native
+  - name: blackbox-exporter
+    group: monitoring
+    project: toolchain
+    modules:
+      imageupdater: false 
+      notifications: false
+    environment:
+      toolchain:
+        cluster:
+          dc: false
+          drc: true
+        namespace: "toolchain-develop"
+        type: "helm" # default=kustomize, helm, native
